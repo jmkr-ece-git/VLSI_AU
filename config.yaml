@@ -1,0 +1,7 @@
+meta:
+  flow: VHDLClassic
+
+DESIGN_NAME: counter
+VHDL_FILES: dir::counter.vhd
+CLOCK_PORT: clk_i
+CLOCK_PERIOD: 20 # 20ns = 50MHz
