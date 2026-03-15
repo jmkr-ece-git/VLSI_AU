@@ -301,6 +301,7 @@ Apart form configuring Librelane for VHDL, listing the source files, defining a 
 
 ### Configuration files with Die size and pin configuration for a Tiny Tapeout submission
 
+
 #### config.json
 
 ~~~json
@@ -311,7 +312,10 @@ Apart form configuring Librelane for VHDL, listing the source files, defining a 
 "DESIGN_NAME": "counter",
 "VHDL_FILES": ["dir::counter.vhd"],
 "CLOCK_PORT": "clk_i",
-"CLOCK_PERIOD": "20"
+"CLOCK_PERIOD": "20",
+"FP_SIZING": "absolute",
+"DIE_AREA": "[0, 0, 202.08, 154.98]",
+"FP_DEF_TEMPLATE":" dir::def/tt_block_1x1_pgvdd.def"
 }
 ~~~
 
@@ -325,6 +329,28 @@ DESIGN_NAME: counter
 VHDL_FILES: dir::counter.vhd
 CLOCK_PORT: clk_i
 CLOCK_PERIOD: 20 # 20ns = 50MHz
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 202.08, 154.98] #Die size of one tt tile
+FP_DEF_TEMPLATE: dir::def/tt_block_1x1_pgvdd.def #Accessing the def file for one tt tile
+~~~
+
+Instead of the "FP_DEF_TEMPLATE" the "FP_PIN_ORDER_CFG: dir::pins_order.cfg" can be used to define pins locations. The content of the pins_order.cfg is shown below
+
+~~~text
+#E
+
+#S
+
+#N
+uo_out.*
+uio_out.*
+uio_oe.*
+uio_in.*
+ui_in.*
+rst_n
+ena
+clk
+#W
 ~~~
 
 ## Inspecting results
