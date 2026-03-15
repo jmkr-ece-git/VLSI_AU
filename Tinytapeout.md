@@ -17,7 +17,7 @@ Before using the TT template, create a github account
 # Inspect the repository
 
 Read the "README.MD" giving you instructions on how to use template.
-There are som older videos by Matt Venn from Tiny Tapeout outling the use of the template, e.g [Tiny Tapeout 4 - working with an HDL]([Tiny Tapeout 4 - working with an HDL](https://www.youtube.com/watch?v=KbWb6xd9jFE)
+There are som older videos by Matt Venn from Tiny Tapeout outling the use of the template, e.g [Tiny Tapeout 4 - working with an HDL][Tiny Tapeout 4 - working with an HDL](https://www.youtube.com/watch?v=KbWb6xd9jFE)
 Key files and folders are e.g:
 
 1. The "src" folder where source files (HDL files) in Verilog are located. Inspect the project.v, a finished TT submission will "instantiate" your design into project.v. Port names and definitions must not be changed.
@@ -34,25 +34,32 @@ To convert VHDL to Verilog, we make use of a tool part of the Librelane installa
 
 The Yosys GHDL plugin and conversion from VHDL to Verilog is described here [Yosys GHDL plugin, synthesis](https://ghdl.github.io/ghdl/using/Synthesis.html#yosys-plugin)
 
-### Usage, from VHDL to Verilog 
+### Usage, from VHDL to Verilog
 
 yosys -m ghdl -p 'ghdl filename.vhdl -e top_unit [arch]; write_verilog filename.v'
-for example
-```
+for example:
+
+```bash
 yosys -m ghdl -p 'ghdl design.vhdl -e top_enity [arch]; write_verilog design.v'
 ```
+
 *>[arch] is optional an refers to an entity with multiple architectures in VHDL.*
+
 ## Acessing Yosys from Librelane
+
 Yosys is accessing directly from within a nix-shell
 Assuming you are in the home folder of your linux installation.
-Using the counter exanmple from the librelane documentation.Assuming to be in "/home/au173347/librelane"
-```
+Using the counter exanmple from the librelane documentation.Assuming to be in "/home/au173347/librelane":
+
+```bash
 cd librelane
 nix-shell
 yosys -m ghdl -p 'ghdl ../my_designs/counter.vhd -e counter; write_verilog counter.v'
 ```
+
 The result is:
-```
+
+```verilog
 module counter(clk_i, rst_ni, count_o);
   wire [7:0] _0_;
   wire [7:0] _1_;
