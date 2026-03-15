@@ -80,7 +80,7 @@ CLOCK_PERIOD: 20 # 20ns = 50MHz
 
 In the Run folder, e.g ~/my_designs/counter/runs the synthesis results can be found "01-yosys-vhdlsynthesis/reports". This is the content of "stat.rpt"
 
-~~~
+~~~text
 === counter ===
 
    Number of wires:                 22
