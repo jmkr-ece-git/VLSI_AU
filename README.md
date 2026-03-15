@@ -1,9 +1,8 @@
-# VLSI AU
+# Using Librelane with VHDL and Tiny Tapeout configuration
+This page is about Librelane usage and configuring librelane according to tiny tapeout requirements
+When using Librelane, we have a choice of either using Verilog of VHDL as HDL language to develop the RTL design used by Librelane to create a GDSII file of the design. Librelane needs to be be configured to be able to synthesize VHDL into a Gatelevel netlist.
 
-Librelane usage
-This repository is about the usage of Librelane, using a VHDLClassic flow.
-
-# Synthesis example
+# VHDL Synthesis example
 
 Counter example from [Librelane documentation, Using VHDL](https://librelane.readthedocs.io/en/latest/usage/using_vhdl.html#)
 
@@ -45,9 +44,8 @@ begin
 end architecture;
 ~~~
 
-## Configuration files
-
-These are examples of Librelane configuration files in json or yaml format
+## Configuring Librelane for VHDL
+Librelane can use either a json formatting or a Yaml formatting. The configuration files below inform the Librelane to use a "VHDLClassic" flow, using the Yosys synthesis tool together with the GHDL plugin for Yosys, that in effect convert the VHDL code into Verilog
 
 ### config.json
 
@@ -294,3 +292,35 @@ module counter(clk_i, rst_ni, count_o);
   );
 endmodule
 ~~~
+## Tiny Tapeout Configuration
+Apart form configuring Librelane for VHDL, listing the source files, defining a clock port and setting a clock period. LIbrelane can be configured to apply a specified die size, specified pins, and their placement on the perimeter of a chip.
+### Configuration files with Die size and pin configuration for a Tiny Tapeout submission.
+ #### config.json
+~~~
+{
+    "meta": {
+        "flow": "VHDLClassic"
+    },
+"DESIGN_NAME": "counter",
+"VHDL_FILES": ["dir::counter.vhd"],
+"CLOCK_PORT": "clk_i",
+"CLOCK_PERIOD": "20"
+}
+~~~
+#### config.yaml
+~~~
+meta:
+  flow: VHDLClassic
+
+DESIGN_NAME: counter
+VHDL_FILES: dir::counter.vhd
+CLOCK_PORT: clk_i
+CLOCK_PERIOD: 20 # 20ns = 50MHz
+~~~
+## Inspecting results
+### Synthesis and gate level netlist
+### Floorplanning
+### Placement
+### Clock tree
+### Routing
+
