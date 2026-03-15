@@ -1,5 +1,7 @@
 # Using Librelane with VHDL and Tiny Tapeout configuration
 
+> See also *[Tiny tapeout considerations](Tinytapeout.md)*, when submitting a design for tapeout with tiny tapeout
+
 This page is about Librelane usage and configuring librelane according to tiny tapeout requirements
 When using Librelane, we have a choice of either using Verilog of VHDL as HDL language to develop the RTL design used by Librelane to create a GDSII file of the design. Librelane needs to be be configured to be able to synthesize VHDL into a Gatelevel netlist.
 
@@ -301,8 +303,7 @@ Apart form configuring Librelane for VHDL, listing the source files, defining a 
 
 ### Configuration files with Die size and pin configuration for a Tiny Tapeout submission
 
-
-#### config.json
+>config.json
 
 ~~~json
 {
@@ -319,7 +320,7 @@ Apart form configuring Librelane for VHDL, listing the source files, defining a 
 }
 ~~~
 
-#### config.yaml
+> config.yaml
 
 ~~~yaml
 meta:
