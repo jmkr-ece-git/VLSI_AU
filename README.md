@@ -313,9 +313,9 @@ Apart form configuring Librelane for VHDL, listing the source files, defining a 
 "DESIGN_NAME": "counter",
 "VHDL_FILES": ["dir::counter.vhd"],
 "CLOCK_PORT": "clk_i",
-"CLOCK_PERIOD": "20",
+"CLOCK_PERIOD": 20,
 "FP_SIZING": "absolute",
-"DIE_AREA": "[0, 0, 202.08, 154.98]",
+"DIE_AREA": [0, 0, 161.00, 111.520],
 "FP_DEF_TEMPLATE":" dir::def/tt_block_1x1_pgvdd.def"
 }
 ~~~
@@ -331,7 +331,7 @@ VHDL_FILES: dir::counter.vhd
 CLOCK_PORT: clk_i
 CLOCK_PERIOD: 20 # 20ns = 50MHz
 FP_SIZING: absolute
-DIE_AREA: [0, 0, 202.08, 154.98] #Die size of one tt tile
+DIE_AREA: [0, 0, 161.00, 111.520] #Die size of one tt tile
 FP_DEF_TEMPLATE: dir::def/tt_block_1x1_pgvdd.def #Accessing the def file for one tt tile
 ~~~
 
